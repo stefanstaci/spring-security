@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,6 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Setter
 @Table(name = "users")
 public class UserEntity implements UserDetails {
     @Id
@@ -26,6 +28,8 @@ public class UserEntity implements UserDetails {
     private String password;
     @Enumerated(EnumType.STRING)
     private RoleEnum role;
+    private String activationCode;
+    private Boolean isActivated;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

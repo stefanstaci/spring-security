@@ -10,5 +10,7 @@ CREATE TABLE IF NOT EXISTS users(
     username VARCHAR,
     email VARCHAR,
     password VARCHAR,
-    role role_enum
+    role role_enum,
+    activation_code VARCHAR,
+    is_activated BOOLEAN
 );
